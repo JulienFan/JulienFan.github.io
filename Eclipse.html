@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Eclipse animation</title>
+	<style>
+		body {
+			-webkit-animation:  sky 5s linear infinite;
+					animation:  sky 5s linear infinite;
+			background: skyblue;
+		}
+		@-webkit-keyframes sky{
+			from, to{
+				background: skyblue;
+			}
+			50%{
+				background: black;
+			}
+		}
+		@keyframes sky{
+			from, to{
+				background: skyblue;
+			}
+			50%{
+				background: black;
+			}
+		}
+
+		.sky{
+			position: relative;
+			width: 50vmin;
+			height: 50vmin;
+			-webkit-transform: translate(calc(50vw - 25vmin),calc(50vh - 25vmin));
+					transform: translate(calc(50vw - 25vmin),calc(50vh - 25vmin));
+		}
+
+		.sun, .moon{
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: rgba(255, 0, 0, 0.5);
+			border-radius: 50%;
+		}
+
+		.sun{
+			background: gold;
+			-webkit-animation:  sun 5s linear infinite;
+					animation:  sun 5s linear infinite;
+		}
+
+		@-webkit-keyframes sun{
+			50% {
+				background: white;
+				box-shaow: 0 0 5em white, 0 0 5em white,0 0 5em white,0 0 5em white;
+			}
+		}
+		@keyframes sun{
+			50% {
+				background: white;
+				box-shadow: 0 0 1em white, 0 0 2em white,0 0 3em white,0 0 4em white,0 0 5em white;
+			}
+		}
+
+		.moon{
+			-webkit-animation: moon 5s linear infinite;
+					animation: moon 5s linear infinite;
+		}
+
+		@-webkit-keyframes moon{
+			from{
+				-webkit-transform: translateX(-110%);
+						transform: translateX(-110%);
+				background: lightgray;
+			}
+			50% {
+				background: black;
+			}
+			to{
+				-webkit-transform: translateX(110%);
+						transform: translateX(110%);
+				background: lightgray;
+			}
+		}
+
+		@keyframes moon{
+			from{
+				-webkit-transform: translateX(-110%);
+						transform: translateX(-110%);
+				background: lightgray;
+			}
+			50% {
+				background: black;
+			}
+			to{
+				-webkit-transform: translateX(110%);
+						transform: translateX(110%);
+				background: lightgray;
+			}
+		}
+
+
+	</style>
+
+</head>
+
+<body>
+	<div class="sky">
+		<div class="sun"></div>
+		<div class="moon"></div>
+	</div>
+</body>
+</html>
