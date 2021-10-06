@@ -63,12 +63,12 @@ permalink: /clock/
         #time {
           top: 0;
           height: 40%;
-          font-size: 10rem;
+          font-size: 16rem;
           font-weight: 700;
         }
         #date {
           height: 30%;
-          font-size: 5rem;
+          font-size: 6rem;
         }
         #motto {
           height: 30%;
@@ -354,7 +354,7 @@ permalink: /clock/
         }
         var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
         var dateString = (date.getMonth() + 1) + '/' + date.getDate()
-        var weekList = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
+        var weekList = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
         var weekString = weekList[date.getDay()]
         if(last_time != timeString){
             timeDiv.innerHTML = timeString
