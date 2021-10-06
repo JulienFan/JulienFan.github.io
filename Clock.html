@@ -353,7 +353,7 @@ permalink: /clock/
           flash(1000);
         }
         var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
-        var dateString = (date.getMonth() + 1) + ' - ' + date.getDate() 
+        var dateString = (date.getMonth() + 1) + '-' + date.getDate() +' '
         var weekList = [' 周日', ' 周一', ' 周二', ' 周三', '  周四', ' 周五', ' 周六']
         var weekString = weekList[date.getDay()]
         if(last_time != timeString){
