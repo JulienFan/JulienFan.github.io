@@ -243,13 +243,13 @@ permalink: /clock/
         var clientHeight = document.documentElement.clientHeight;
         var clientWidth = document.documentElement.clientWidth;
         switch (style) {
-          case 1:
-          case "1":
-            saveStyle(style);
-            pageDiv.classList.remove('style-smaller-motto');
-            pageDiv.classList.add('style-remove-motto')
-            setWidgetHeight(clientHeight, 0.7, 0.3, 0);
-            style = 2;
+          // case 1:
+          // case "1":
+          //   saveStyle(style);
+          //   pageDiv.classList.remove('style-smaller-motto');
+          //   pageDiv.classList.add('style-remove-motto')
+          //   setWidgetHeight(clientHeight, 0.7, 0.3, 0);
+          //   style = 2;
             break;
           case 2:
           case "2":
@@ -280,6 +280,7 @@ permalink: /clock/
 // hack for kindle 2
             setPage(clientHeight*0.5, clientWidth*0.5, bais, -bais);
             setTimeout("style = 33; changeStyle();", 1);
+            style = 2;
             break;
           case 33:
             timeDiv.innerHTML = ""
@@ -423,7 +424,7 @@ permalink: /clock/
       motto = getQueryVariable("motto") ? getQueryVariable("motto") : ""
       setMotto();
       timezone = getQueryVariable("timezone") ? getQueryVariable("timezone") : 2
-      style = getQueryVariable("style") ? getQueryVariable("style") : (getCookieStyle() ? getCookieStyle() : 3)
+      style = getQueryVariable("style") ? getQueryVariable("style") : (getCookieStyle() ? getCookieStyle() : 2)
       // if(style == 0){
       //   showTips("TIPS","try these urls:\n/clock?timezone=+10&style=3\n/clock?motto=hello\\nworld\ntips closing in 10s",10000);
       // }
