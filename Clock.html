@@ -292,32 +292,32 @@ permalink: /clock/
 // hack for kindle 2 done
             style = 4;
             break;
-          case 4:
-          case "4":
-            saveStyle(style);
-            pageDiv.classList.remove('style-rotate90');
-            pageDiv.classList.remove('style-remove-motto')
-            pageDiv.classList.add('style-remove-date')
-            pageDiv.classList.add('style-default');
-            setWidgetHeight(clientHeight, 0.7, 0, 0.3);
-            setPage(clientWidth, clientHeight, 0, 0);
-            clock_stop();
-            zenModeStart();
-// hack for kindle 3
-            timeDiv.innerHTML = ""
-            setTimeout("style = 44; changeStyle();", 1);
-          break;
-          case 44:
-            timeDiv.innerHTML = zenTime
-// hack for kindle 3 done
-            style = 5;
-            break;
-          case 5:
-          case "5":
-            saveStyle(style);
-            pageDiv.classList.remove('style-larger-time');
-            pageDiv.classList.remove('style-remove-date');
-            zenModeStop();
+//           case 4:
+//           case "4":
+//             saveStyle(style);
+//             pageDiv.classList.remove('style-rotate90');
+//             pageDiv.classList.remove('style-remove-motto')
+//             pageDiv.classList.add('style-remove-date')
+//             pageDiv.classList.add('style-default');
+//             setWidgetHeight(clientHeight, 0.7, 0, 0.3);
+//             setPage(clientWidth, clientHeight, 0, 0);
+//             clock_stop();
+//             zenModeStart();
+// // hack for kindle 3
+//             timeDiv.innerHTML = ""
+//             setTimeout("style = 44; changeStyle();", 1);
+//           break;
+//           case 44:
+//             timeDiv.innerHTML = zenTime
+// // hack for kindle 3 done
+//             style = 5;
+//             break;
+          // case 5:
+          // case "5":
+          //   saveStyle(style);
+          //   pageDiv.classList.remove('style-larger-time');
+          //   pageDiv.classList.remove('style-remove-date');
+          //   zenModeStop();
           default:
             setWidgetHeight(clientHeight, 0.4, 0.3, 0.3);
             style = 1;
