@@ -138,15 +138,22 @@ permalink: /clock-compact/
           case 1:
           case "1":
             saveStyle(style);
-            pageDiv.classList.add('style-rotate90');
+            pageDiv.classList.remove('style-rotate270');
+
             setWidgetHeight(clientWidth, 0.6, 0.4); 
             var bais = (clientHeight - clientWidth) / 2;
-            setPage(clientHeight, clientWidth, bais, -bais);
+            setPage(clientHeight*0.5, clientWidth*0.5, bais, -bais);
 // hack for kindle 1
-            timeDiv.innerHTML = ""
+            
             setTimeout("style = 11; changeStyle();", 1);
             break;
           case 11:
+            timeDiv.innerHTML = ""
+            pageDiv.classList.add('style-rotate90');
+            setPage(clientHeight, clientWidth, bais, -bais);
+            setTimeout("style = 111; changeStyle();", 1);
+            break;
+          case 111:
             timeDiv.innerHTML = last_time;
 // hack for kindle 1 done
             style = 2;
