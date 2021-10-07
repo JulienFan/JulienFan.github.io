@@ -100,14 +100,6 @@ permalink: /clock/
       
       const TIME_INTE = 60000
 
-      // function clock_toggle(){
-      //   if(clock_running){
-      //     clock_stop();
-      //   }else{
-      //     clock_start();
-      //   }
-        
-      // }
 
       function clock_start(){
         console.log("clock start")
@@ -171,7 +163,7 @@ permalink: /clock/
           case "2":
             pageDiv.classList.remove('style-rotate90');
             
-            setWidgetHeight(clientWidth, 0.6, 0.4);
+            setWidgetHeight(clientWidth, 0.65, 0.35);
             var bais = (clientHeight - clientWidth) / 2;
 // hack for kindle 2
             setPage(clientHeight*0.5, clientWidth*0.5, bais, -bais);
@@ -190,7 +182,7 @@ permalink: /clock/
             break;
 
           default:
-            setWidgetHeight(clientHeight, 0.6, 0.4);
+            setWidgetHeight(clientHeight, 0.65, 0.35);
             style = 1;
             clock_start();
         }
@@ -220,7 +212,7 @@ permalink: /clock/
           last_flash = date.getHours();
           flash(1000);
         }
-        var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
+        var timeString = ('0' + date.getHours()).slice(-2) + ':' + ('0' + date.getMinutes()).slice(-2)
         var dateString = (date.getMonth() + 1) + '-' + ('0' + date.getDate()).slice(-2) + ' '
         var weekList = [' 周日', ' 周一', ' 周二', ' 周三', '  周四', ' 周五', ' 周六']
         var weekString = weekList[date.getDay()]
@@ -236,16 +228,6 @@ permalink: /clock/
         setTimeout("document.body.style.backgroundColor = '#FFF';",time)
       }
 
-      // String.prototype.replaceAll = function(targetStr, newStr) {
-      //   var sourceStr = this.valueOf()
-      //   while (sourceStr.indexOf(targetStr) !== -1) {
-      //     sourceStr = sourceStr.replace(targetStr, newStr)
-      //   }
-      //   return sourceStr
-      // }
-
-
-      //flash(100);
       
       timezone = getQueryVariable("timezone") ? getQueryVariable("timezone") : 2
       style = getQueryVariable("style") ? getQueryVariable("style") : 1
