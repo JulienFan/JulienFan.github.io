@@ -8,6 +8,7 @@ permalink: /clock-test/
     <meta charset="utf-8"/>
     <title>　pipi clock </title>
     <link href="https://fonts.font.im/css2?family=Montserrat" rel="stylesheet">
+
     <style>
         body {
           color: #000000;
@@ -15,17 +16,10 @@ permalink: /clock-test/
           font-family: 'Montserrat';
         }
 
-        .style-rotate90{
-          -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-        }
-
         .page {
           position: fixed;
           width: 100%;
           height: 100%;
-         /* -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);*/
         }
 
         .time_container,
@@ -45,14 +39,11 @@ permalink: /clock-test/
         }
 
         .time {
-          /*top: 0;
-          height: 60%;*/
           padding-top: 120px;
           font-size: 16rem;
         }
 
         .date {
-          /*height: 40%;*/
           padding-top: 40px;
           font-size: 6rem;
         }
@@ -61,7 +52,7 @@ permalink: /clock-test/
 
 <body>
     <div class="page">
-      <div class="time_container" onclick="changeStyle()">
+      <div class="time_container">
           <div class="time" id="time">11:27</div>
       </div>
 
@@ -73,20 +64,8 @@ permalink: /clock-test/
 
 
     <script>
-      
-      const timeDiv = document.getElementById("time_container");
-      const dateDiv = document.getElementById("date_container");
-      const pageDiv = document.getElementById("page");
-
-      function changeStyle() {
-        var clientHeight = document.documentElement.clientHeight;
-        var clientWidth = document.documentElement.clientWidth;
-      }
-
-
       function update() {
         var date = new Date()
-        timezone = getQueryVariable("timezone") ? getQueryVariable("timezone") : 8
         var utc8DiffMinutes = date.getTimezoneOffset() + 480
         date.setMinutes(date.getMinutes() + utc8DiffMinutes)
 
@@ -105,3 +84,4 @@ permalink: /clock-test/
     </script>
 </body>
 </html>
+
