@@ -89,7 +89,6 @@ permalink: /clock/
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"></script>
     <script>
       var last_time;
-      // var last_flash;
       var interval_id;
       var style = 0;
       var timezone = 8;
@@ -101,14 +100,14 @@ permalink: /clock/
       
       const TIME_INTE = 60000
 
-      function clock_toggle(){
-        if(clock_running){
-          clock_stop();
-        }else{
-          clock_start();
-        }
+      // function clock_toggle(){
+      //   if(clock_running){
+      //     clock_stop();
+      //   }else{
+      //     clock_start();
+      //   }
         
-      }
+      // }
 
       function clock_start(){
         console.log("clock start")
@@ -150,7 +149,7 @@ permalink: /clock/
           case "1":
             pageDiv.classList.remove('style-rotate270');
 
-            setWidgetHeight(clientWidth, 0.6, 0.4); 
+            setWidgetHeight(clientWidth, 0.5, 0.5); 
             var bais = (clientHeight - clientWidth) / 2;
             setPage(clientHeight*0.5, clientWidth*0.5, bais, -bais);
 // hack for kindle 1
