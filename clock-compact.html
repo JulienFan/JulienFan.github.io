@@ -257,10 +257,10 @@ permalink: /clock-compact/
           case "1":
             saveStyle(style);
             // pageDiv.classList.remove('style-smaller-motto');
-             pageDiv.classList.remove('style-remove-rotate90')
+             //pageDiv.classList.remove('style-remove-rotate90')
             //pageDiv.classList.add('style-rotate0')；
 
-            setWidgetHeight(clientHeight, 0.6, 0.4);
+            //setWidgetHeight(clientHeight, 0.6, 0.4);
           //   var bais = (clientHeight - clientWidth) / 2;
           //   setPage(clientHeight, clientWidth, bais, -bais);
           //   timeDiv.innerHTML = ""
@@ -268,12 +268,8 @@ permalink: /clock-compact/
           //   break;
           // case 11:
           //   timeDiv.innerHTML = last_time;
-            style = 2;
-            break;
-          case 2:
-          case "2":
-            saveStyle(style);
-            pageDiv.classList.add('style-rotate270');
+
+          pageDiv.classList.add('style-rotate270');
             // pageDiv.classList.add('style-larger-time')
             // pageDiv.classList.add('style-remove-motto')
             setWidgetHeight(clientWidth, 0.6, 0.4); 
@@ -281,15 +277,15 @@ permalink: /clock-compact/
             setPage(clientHeight, clientWidth, bais, -bais);
 // hack for kindle 1
             timeDiv.innerHTML = ""
-            setTimeout("style = 22; changeStyle();", 1);
+            setTimeout("style = 11; changeStyle();", 1);
             break;
-          case 22:
+          case 11:
             timeDiv.innerHTML = last_time;
 // hack for kindle 1 done
-            style = 3;
+            style = 2;
             break;
-          case 3:
-          case "3":
+          case 2:
+          case "2":
             saveStyle(style);
             pageDiv.classList.remove('style-rotate270');
             // pageDiv.classList.add('style-larger-time');
@@ -298,19 +294,64 @@ permalink: /clock-compact/
             var bais = (clientHeight - clientWidth) / 2;
 // hack for kindle 2
             setPage(clientHeight*0.5, clientWidth*0.5, bais, -bais);
-            setTimeout("style = 33; changeStyle();", 1);
+            setTimeout("style = 22; changeStyle();", 1);
             break;
-          case 33:
+          case 22:
             timeDiv.innerHTML = ""
             pageDiv.classList.add('style-rotate90');
             setPage(clientHeight, clientWidth, bais, -bais);
-            setTimeout("style = 333; changeStyle();", 1);
+            setTimeout("style = 222; changeStyle();", 1);
             break;
-          case 333:
+          case 222:
             timeDiv.innerHTML = last_time;
 // hack for kindle 2 done
             style = 1;
             break;
+
+
+
+
+
+
+
+//             pageDiv.classList.add('style-rotate270');
+//             // pageDiv.classList.add('style-larger-time')
+//             // pageDiv.classList.add('style-remove-motto')
+//             setWidgetHeight(clientWidth, 0.6, 0.4); 
+//             var bais = (clientHeight - clientWidth) / 2;
+//             setPage(clientHeight, clientWidth, bais, -bais);
+// // hack for kindle 1
+//             timeDiv.innerHTML = ""
+//             setTimeout("style = 22; changeStyle();", 1);
+//             break;
+//           case 22:
+//             timeDiv.innerHTML = last_time;
+// // hack for kindle 1 done
+//             style = 3;
+//             break;
+//           case 3:
+//           case "3":
+//             saveStyle(style);
+//             pageDiv.classList.remove('style-rotate270');
+//             // pageDiv.classList.add('style-larger-time');
+//             // pageDiv.classList.add('style-remove-motto');
+//             setWidgetHeight(clientWidth, 0.6, 0.4);
+//             var bais = (clientHeight - clientWidth) / 2;
+// // hack for kindle 2
+//             setPage(clientHeight*0.5, clientWidth*0.5, bais, -bais);
+//             setTimeout("style = 33; changeStyle();", 1);
+//             break;
+//           case 33:
+//             timeDiv.innerHTML = ""
+//             pageDiv.classList.add('style-rotate90');
+//             setPage(clientHeight, clientWidth, bais, -bais);
+//             setTimeout("style = 333; changeStyle();", 1);
+//             break;
+//           case 333:
+//             timeDiv.innerHTML = last_time;
+// // hack for kindle 2 done
+//             style = 1;
+//             break;
 //           case 4:
 //           case "4":
 //             saveStyle(style);
