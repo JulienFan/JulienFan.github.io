@@ -64,7 +64,7 @@ permalink: /clock/
           /*font-family: Amazon ember;*/
           top: 0;
           height: 60%;
-          font-size: 11rem;
+          font-size: 12rem;
           /*font-weight: 100;*/
 
 
@@ -89,7 +89,7 @@ permalink: /clock/
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"></script>
     <script>
       var last_time;
-      var last_flash;
+      // var last_flash;
       var interval_id;
       var style = 0;
       var timezone = 8;
@@ -121,7 +121,7 @@ permalink: /clock/
       }
 
       function clock_stop(){
-        console.log("clock done")
+        console.log("clock stop")
         clock_running = false;
         clearInterval(interval_id);
       }
@@ -217,10 +217,10 @@ permalink: /clock/
         var date = new Date()
         var utcDiffMinutes = date.getTimezoneOffset() + timezone * 60;
         date.setMinutes(date.getMinutes() + utcDiffMinutes);
-        if (date.getMinutes() == 0 &&  date.getHours() != last_flash) {
-          last_flash = date.getHours();
-          flash(1000);
-        }
+        // if (date.getMinutes() == 0 &&  date.getHours() != last_flash) {
+        //   last_flash = date.getHours();
+        //   flash(1000);
+        // }
         var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
         var dateString = (date.getMonth() + 1) + '-' + ('0' + date.getDate()).slice(-2) + ' '
         var weekList = [' 周日', ' 周一', ' 周二', ' 周三', '  周四', ' 周五', ' 周六']
