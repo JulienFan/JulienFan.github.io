@@ -8,21 +8,7 @@ permalink: /clock-test/
     <meta charset="utf-8"/>
     <title>　pipi clock </title>
     <link href="https://fonts.font.im/css2?family=Montserrat" rel="stylesheet">
-    <style>
-  
-      /* style 1: rotate 90deg */
-      .style-rotate90 {
-        -webkit-transform: rotate(90deg);
-        transform: rotate(90deg);
-      }
-      
-      /* style 2: rotate -90deg */
-      .style-rotate270 {
-        -webkit-transform: rotate(270deg);
-        transform: rotate(270deg);
-      }
-      
-    </style>
+
     <style>
         body {
           color: #000000;
@@ -53,169 +39,48 @@ permalink: /clock-test/
         }
 
         .time {
-          /*padding-top: 120px;*/
-          top: 0;
-          height: 60%;
-
-          font-size: 13rem;
-          font-weight: 700;
+          padding-top: 120px;
+          font-size: 16rem;
         }
 
         .date {
-          /*padding-top: 40px;*/
-          height: 40%;
-          font-size: 5rem;
+          padding-top: 40px;
+          font-size: 6rem;
         }
     </style>
 </head>
 
-<body scroll="no">
-    
-    <div class="page" id="page" >
-      <div class="time" id="time" onclick="changeStyle()"></div>
-      <div class="date" id="date" onclick="changeStyle()"></div>
-    </div>
-
-
-    <!-- <div class="page" id="page">
-      <div class="time_container" onclick="changeStyle()">
-          <div class="time" id="time">10:10</div>
+<body>
+    <div class="page">
+      <div class="time_container">
+          <div class="time" id="time">11:27</div>
       </div>
 
       <div class="date_container">
-          <div class="date" id="date">1月1日</div>
+          <div class="date" id="date">1月10日</div>
           <div class="date" id="week">星期三</div>
       </div>
-    </div> -->
+    </div>
 
-     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"></script>
+
     <script>
-      var style = 0;
-      var timezone = 8;
-
-      const timeDiv = document.getElementById("time");
-      const dateDiv = document.getElementById("date");
-      const pageDiv = document.getElementById("page");
-      
-      const TIME_INTE = 60000
-
-
-
-      function setWidgetHeight(base,timeHeight,dateHeight) {
-        timeDiv.style.height = base*timeHeight+"px";
-        timeDiv.style.lineHeight = base*timeHeight+"px";
-        dateDiv.style.height = base*dateHeight+"px";
-        dateDiv.style.lineHeight = base*dateHeight+"px";
-      }
-
-      function setPage(width, height, top, left) {
-        pageDiv.style.width = width+"px";
-        pageDiv.style.height = height+"px";
-        pageDiv.style.top = top+"px";
-        pageDiv.style.left = left+"px";
-      }
-
-      function changeStyle() {
-        var clientHeight = document.documentElement.clientHeight;
-        var clientWidth = document.documentElement.clientWidth;
-        switch (style) {
-          case 1:
-          case "1":
-            pageDiv.classList.remove('style-rotate270');
-
-            setWidgetHeight(clientWidth, 0.6, 0.4); 
-            var bais = (clientHeight - clientWidth) / 2;
-            setPage(clientHeight*0.5, clientWidth*0.5, bais, -bais);
-// hack for kindle 1
-            
-            setTimeout("style = 11; changeStyle();", 1);
-            break;
-          case 11:
-            timeDiv.innerHTML = ""
-            pageDiv.classList.add('style-rotate90');
-            setPage(clientHeight, clientWidth, bais, -bais);
-            setTimeout("style = 111; changeStyle();", 1);
-            break;
-          case 111:
-            timeDiv.innerHTML = last_time;
-// hack for kindle 1 done
-            style = 2;
-            break;
-          case 2:
-          case "2":
-            pageDiv.classList.remove('style-rotate90');
-            
-            setWidgetHeight(clientWidth, 0.6, 0.4);
-            var bais = (clientHeight - clientWidth) / 2;
-// hack for kindle 2
-            setPage(clientHeight*0.5, clientWidth*0.5, bais, -bais);
-            setTimeout("style = 22; changeStyle();", 1);
-            break;
-          case 22:
-            timeDiv.innerHTML = ""
-            pageDiv.classList.add('style-rotate270');
-            setPage(clientHeight, clientWidth, bais, -bais);
-            setTimeout("style = 222; changeStyle();", 1);
-            break;
-          case 222:
-            timeDiv.innerHTML = last_time;
-// hack for kindle 2 done
-            style = 1;
-            break;
-
-          default:
-            setWidgetHeight(clientHeight, 0.6, 0.4);
-            style = 1;
-            clock_start();
-        }
-      }
-
-      function fontSizeAutoChange(){
-        var clientHeight = document.documentElement.clientHeight;
-        var clientWidth = document.documentElement.clientWidth;
-        tipsDiv.style.width = clientWidth+"px";
-        tipsDiv.style.height = clientHeight+"px";
-        tipsTitleDiv.style.height = clientHeight*0.5+"px";
-        tipsTitleDiv.style.lineHeight = clientHeight*0.5+"px";
-        document.documentElement.style.fontSize=(clientHeight/40)+"px";
-      }
-
-      function getQueryVariable(variable){
-        var query = window.location.search.substring(1);
-        var vars = query.split("&");
-        for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
-               if(pair[0] == variable){return decodeURI(pair[1]);}
-        }
-        return(false);
-     }
-
       function update() {
         var date = new Date()
-        var utcDiffMinutes = date.getTimezoneOffset() + timezone * 60
-        date.setMinutes(date.getMinutes() + utcDiffMinutes)
+        var utc8DiffMinutes = date.getTimezoneOffset() + 480
+        date.setMinutes(date.getMinutes() + utc8DiffMinutes)
 
         var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
-        var dateString = (date.getMonth() + 1) + '-' + date.getDate() 
+        var dateString = (date.getMonth() + 1) + '月' + date.getDate() + '日'
         var weekList = ['日', '一', '二', '三', '四', '五', '六']
-        var weekString = '周' + weekList[date.getDay()]
+        var weekString = '星期' + weekList[date.getDay()]
 
-        // document.getElementById("time").innerHTML = timeString
-        // document.getElementById("date").innerHTML = dateString
-        // document.getElementById("week").innerHTML = weekString
-
-        timeDiv.innerHTML = timeString
-        dateDiv.innerHTML = dateString + ' ' +  weekString
+        document.getElementById("time").innerHTML = timeString
+        document.getElementById("date").innerHTML = dateString
+        document.getElementById("week").innerHTML = weekString
       }
 
-      timezone = getQueryVariable("timezone") ? getQueryVariable("timezone") : 2
-      style = getQueryVariable("style") ? getQueryVariable("style") : 1
-
-      update();
-      setInterval("update()", 60 * 1000);
-      changeStyle();
-      fontSizeAutoChange();
-      window.onresize=fontSizeAutoChange;
+      update()
+      setInterval("update()", 60 * 1000)
     </script>
 </body>
 </html>
