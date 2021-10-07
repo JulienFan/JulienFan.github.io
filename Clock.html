@@ -200,10 +200,6 @@ permalink: /clock/
       function fontSizeAutoChange(){
         var clientHeight = document.documentElement.clientHeight;
         var clientWidth = document.documentElement.clientWidth;
-        tipsDiv.style.width = clientWidth+"px";
-        tipsDiv.style.height = clientHeight+"px";
-        tipsTitleDiv.style.height = clientHeight*0.5+"px";
-        tipsTitleDiv.style.lineHeight = clientHeight*0.5+"px";
         document.documentElement.style.fontSize=(clientHeight/40)+"px";
       }
 
@@ -236,10 +232,10 @@ permalink: /clock/
         last_time = timeString;
       }
 
-      function flash(time) {
-        document.body.style.backgroundColor = '#000';
-        setTimeout("document.body.style.backgroundColor = '#FFF';",time)
-      }
+      // function flash(time) {
+      //   document.body.style.backgroundColor = '#000';
+      //   setTimeout("document.body.style.backgroundColor = '#FFF';",time)
+      // }
 
       // String.prototype.replaceAll = function(targetStr, newStr) {
       //   var sourceStr = this.valueOf()
@@ -250,7 +246,7 @@ permalink: /clock/
       // }
 
 
-      flash(100);
+      //flash(100);
       
       timezone = getQueryVariable("timezone") ? getQueryVariable("timezone") : 2
       style = getQueryVariable("style") ? getQueryVariable("style") : 1
