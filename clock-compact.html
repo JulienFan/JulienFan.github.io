@@ -109,7 +109,7 @@ permalink: /clock-compact/
     <div class="page" id="page" >
       <div class="time" id="time" onclick="changeStyle()"></div>
       <div class="date" id="date" onclick="changeStyle()"></div>
-      <div class="motto" id="motto" onclick="setMotto()"></div>
+      <!-- <div class="motto" id="motto" onclick="setMotto()"></div> -->
     </div>
 
     <script type="text/javascript" src="http://s9.cnzz.com/z_stat.php?id=1279802450&web_id=1279802450"></script>
@@ -122,12 +122,12 @@ permalink: /clock-compact/
       var timezone = 8;
       var clock_running = false;
       var motto = "";
-      var zenmode_running = false;
-      var zenmode_time;
-      var zenmode_relax_time;
-      var zenmode_interval_id;
-      var zenmode_relax_interval_id;
-      var zenmode_totaltime = 0;
+      // var zenmode_running = false;
+      // var zenmode_time;
+      // var zenmode_relax_time;
+      // var zenmode_interval_id;
+      // var zenmode_relax_interval_id;
+      // var zenmode_totaltime = 0;
       const timeDiv = document.getElementById("time");
       const dateDiv = document.getElementById("date");
       const pageDiv = document.getElementById("page");
@@ -135,9 +135,9 @@ permalink: /clock-compact/
       const tipsDiv = document.getElementById("tips");
       const tipsTitleDiv = document.getElementById("tips-title");
       const tipsContentDiv = document.getElementById("tips-content");
-      const halt = "HALT";
-      const zenTime = 25;
-      const zenRelaxTime = 5;
+      //const halt = "HALT";
+      // const zenTime = 25;
+      // const zenRelaxTime = 5;
       const TIME_INTE = 60000
 
       function clock_toggle(){
@@ -181,68 +181,68 @@ permalink: /clock-compact/
         pageDiv.style.left = left+"px";
       }
 
-      function zenModeStart(){
-        console.log("zen start")
-        if(zenmode_running) return;
-        zenmode_time = zenTime;
-        updateZenTime();
-        clearInterval(zenmode_interval_id);
-        clearInterval(zenmode_relax_interval_id);
-        zenmode_interval_id = setInterval("updateZenTime()", TIME_INTE);
-        zenmode_running = true;
-      }
+      // function zenModeStart(){
+      //   console.log("zen start")
+      //   if(zenmode_running) return;
+      //   zenmode_time = zenTime;
+      //   updateZenTime();
+      //   clearInterval(zenmode_interval_id);
+      //   clearInterval(zenmode_relax_interval_id);
+      //   zenmode_interval_id = setInterval("updateZenTime()", TIME_INTE);
+      //   zenmode_running = true;
+      // }
 
-      function zenModeStop(){
-        console.log("zen done")
-        zenmode_running = false;
-        clearInterval(zenmode_interval_id);
-        clearInterval(zenmode_relax_interval_id);
-        setMotto();
-        if(zenmode_totaltime > 0){
-          _czc.push(["_trackEvent","kindle","zenmode_totaltime",zenmode_totaltime,"zen"])
-        }
-      }
+      // function zenModeStop(){
+      //   console.log("zen done")
+      //   zenmode_running = false;
+      //   clearInterval(zenmode_interval_id);
+      //   clearInterval(zenmode_relax_interval_id);
+      //   setMotto();
+      //   if(zenmode_totaltime > 0){
+      //     _czc.push(["_trackEvent","kindle","zenmode_totaltime",zenmode_totaltime,"zen"])
+      //   }
+      // }
 
-      function zenModeToggle(){
-        if(zenmode_running == false){
-          zenModeStart();
-        } else {
-          zenModeStop();
-        }
-      }
+      // function zenModeToggle(){
+      //   if(zenmode_running == false){
+      //     zenModeStart();
+      //   } else {
+      //     zenModeStop();
+      //   }
+      // }
 
-      function updateZenTime(){
-        timeDiv.innerHTML = zenmode_time;
-        if(zenmode_time == 0){
-          console.log("zenmode:relax")
-          zenmode_relax_time = zenRelaxTime;
-          flash(1000);
-          updateZenRelaxTime();
-          clearInterval(zenmode_relax_interval_id);
-          clearInterval(zenmode_interval_id);
-          zenmode_relax_interval_id = setInterval("updateZenRelaxTime()", TIME_INTE);
-        } else {
-          setMotto("ZEN MODE: CONCENTRATE");
-          zenmode_time--;
-          zenmode_totaltime++;
-        }
-      }
+      // function updateZenTime(){
+      //   timeDiv.innerHTML = zenmode_time;
+      //   if(zenmode_time == 0){
+      //     console.log("zenmode:relax")
+      //     zenmode_relax_time = zenRelaxTime;
+      //     flash(1000);
+      //     updateZenRelaxTime();
+      //     clearInterval(zenmode_relax_interval_id);
+      //     clearInterval(zenmode_interval_id);
+      //     zenmode_relax_interval_id = setInterval("updateZenRelaxTime()", TIME_INTE);
+      //   } else {
+      //     setMotto("ZEN MODE: CONCENTRATE");
+      //     zenmode_time--;
+      //     zenmode_totaltime++;
+      //   }
+      // }
 
-      function updateZenRelaxTime(){
-        timeDiv.innerHTML = zenmode_relax_time;
-        if(zenmode_relax_time == 0){
-          console.log("zenmode concentrate")
-          zenmode_time = zenTime;
-          flash(1000);
-          updateZenTime();
-          clearInterval(zenmode_relax_interval_id);
-          clearInterval(zenmode_interval_id);
-          zenmode_interval_id = setInterval("updateZenTime()", TIME_INTE);
-        } else {
-          setMotto("ZEN MODE: RELAX");
-          zenmode_relax_time--;
-        }
-      }
+      // function updateZenRelaxTime(){
+      //   timeDiv.innerHTML = zenmode_relax_time;
+      //   if(zenmode_relax_time == 0){
+      //     console.log("zenmode concentrate")
+      //     zenmode_time = zenTime;
+      //     flash(1000);
+      //     updateZenTime();
+      //     clearInterval(zenmode_relax_interval_id);
+      //     clearInterval(zenmode_interval_id);
+      //     zenmode_interval_id = setInterval("updateZenTime()", TIME_INTE);
+      //   } else {
+      //     setMotto("ZEN MODE: RELAX");
+      //     zenmode_relax_time--;
+      //   }
+      // }
 
       function changeStyle() {
         var clientHeight = document.documentElement.clientHeight;
@@ -272,7 +272,7 @@ permalink: /clock-compact/
           case 22:
             timeDiv.innerHTML = last_time;
 // hack for kindle 1 done
-            style = 1;
+            style = 3;
             break;
           case 3:
           case "3":
@@ -295,37 +295,37 @@ permalink: /clock-compact/
           case 333:
             timeDiv.innerHTML = last_time;
 // hack for kindle 2 done
-            style = 1;
+            style = 2;
             break;
-          case 4:
-          case "4":
-            saveStyle(style);
-            pageDiv.classList.remove('style-rotate90');
-            pageDiv.classList.remove('style-remove-motto')
-            pageDiv.classList.add('style-remove-date')
-            pageDiv.classList.add('style-default');
-            setWidgetHeight(clientHeight, 0.7, 0, 0.3);
-            setPage(clientWidth, clientHeight, 0, 0);
-            clock_stop();
-            zenModeStart();
-// hack for kindle 3
-            timeDiv.innerHTML = ""
-            setTimeout("style = 44; changeStyle();", 1);
-          break;
-          case 44:
-            timeDiv.innerHTML = zenTime
-// hack for kindle 3 done
-            style = 5;
-            break;
-          case 5:
-          case "5":
-            saveStyle(style);
-            pageDiv.classList.remove('style-larger-time');
-            pageDiv.classList.remove('style-remove-date');
-            zenModeStop();
+//           case 4:
+//           case "4":
+//             saveStyle(style);
+//             pageDiv.classList.remove('style-rotate90');
+//             pageDiv.classList.remove('style-remove-motto')
+//             pageDiv.classList.add('style-remove-date')
+//             pageDiv.classList.add('style-default');
+//             setWidgetHeight(clientHeight, 0.7, 0, 0.3);
+//             setPage(clientWidth, clientHeight, 0, 0);
+//             clock_stop();
+//             zenModeStart();
+// // hack for kindle 3
+//             timeDiv.innerHTML = ""
+//             setTimeout("style = 44; changeStyle();", 1);
+//           break;
+//           case 44:
+//             timeDiv.innerHTML = zenTime
+// // hack for kindle 3 done
+//             style = 5;
+//             break;
+//           case 5:
+//           case "5":
+//             saveStyle(style);
+//             pageDiv.classList.remove('style-larger-time');
+//             pageDiv.classList.remove('style-remove-date');
+//             zenModeStop();
           default:
             setWidgetHeight(clientHeight, 0.4, 0.3, 0.3);
-            style = 1;
+            style = 2;
             clock_start();
         }
       }
@@ -391,22 +391,22 @@ permalink: /clock-compact/
         setTimeout("pageDiv.style.display = 'block'; tipsDiv.classList.add('style-remove-tips');",time);
       }
 
-      function setMotto(text) {
-        var motto_list = [
-          'Go make a life, not a living.',
-          'Man makes plan, god laughs.',
-        ]
-        if(!text){
-          text = motto
-          if(motto == ""){
-            var index = Math.floor((Math.random()*motto_list.length));
-            text = motto_list[index];
-          }
-        }
+      // function setMotto(text) {
+      //   var motto_list = [
+      //     'Go make a life, not a living.',
+      //     'Man makes plan, god laughs.',
+      //   ]
+      //   if(!text){
+      //     text = motto
+      //     if(motto == ""){
+      //       var index = Math.floor((Math.random()*motto_list.length));
+      //       text = motto_list[index];
+      //     }
+      //   }
 
-        text = text.replaceAll("\\n","<br/>");
-        mottoDiv.innerHTML = text;
-      }
+      //   text = text.replaceAll("\\n","<br/>");
+      //   mottoDiv.innerHTML = text;
+      // }
 
       function saveStyle(s){
         var cookie = "style="+ s +"; expires=Thu, 18 Dec 2043 12:00:00 GMT"
@@ -425,8 +425,8 @@ permalink: /clock-compact/
       }
 
       flash(100);
-      motto = getQueryVariable("motto") ? getQueryVariable("motto") : ""
-      setMotto();
+      // motto = getQueryVariable("motto") ? getQueryVariable("motto") : ""
+      // setMotto();
       timezone = getQueryVariable("timezone") ? getQueryVariable("timezone") : 2
       style = getQueryVariable("style") ? getQueryVariable("style") : (getCookieStyle() ? getCookieStyle() : 2)
       // if(style == 0){
