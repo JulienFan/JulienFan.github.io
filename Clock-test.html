@@ -87,8 +87,8 @@ permalink: /clock-test/
       function update() {
         var date = new Date()
         timezone = getQueryVariable("timezone") ? getQueryVariable("timezone") : 8
-        var utcDiffMinutes = date.getTimezoneOffset() + 480
-        date.setMinutes(date.getMinutes() + utcDiffMinutes)
+        var utc8DiffMinutes = date.getTimezoneOffset() + 480
+        date.setMinutes(date.getMinutes() + utc8DiffMinutes)
 
         var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
         var dateString = (date.getMonth() + 1) + '月' + date.getDate() + '日'
