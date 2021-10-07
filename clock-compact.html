@@ -65,7 +65,7 @@ permalink: /clock-compact/
           /*font-family: Amazon ember;*/
           top: 0;
           height: 60%;
-          font-size: 16rem;
+          font-size: 13rem;
           font-weight: 700;
 
         }
@@ -266,14 +266,15 @@ permalink: /clock-compact/
             var bais = (clientHeight - clientWidth) / 2;
             setPage(clientHeight, clientWidth, bais, -bais);
 // hack for kindle 1
-            timeDiv.innerHTML = ""
-            setTimeout("style = 22; changeStyle();", 1);
-            break;
-          case 22:
-            timeDiv.innerHTML = last_time;
-// hack for kindle 1 done
+            // timeDiv.innerHTML = ""
+            // setTimeout("style = 22; changeStyle();", 1);
             style = 3;
             break;
+//           case 22:
+//             timeDiv.innerHTML = last_time;
+// // hack for kindle 1 done
+//             style = 3;
+//             break;
           case 3:
           case "3":
             saveStyle(style);
@@ -284,19 +285,20 @@ permalink: /clock-compact/
             var bais = (clientHeight - clientWidth) / 2;
 // hack for kindle 2
             setPage(clientHeight*0.5, clientWidth*0.5, bais, -bais);
-            setTimeout("style = 33; changeStyle();", 1);
-            break;
-          case 33:
-            timeDiv.innerHTML = ""
-            pageDiv.classList.add('style-rotate90');
-            setPage(clientHeight, clientWidth, bais, -bais);
-            setTimeout("style = 333; changeStyle();", 1);
-            break;
-          case 333:
-            timeDiv.innerHTML = last_time;
-// hack for kindle 2 done
+            // setTimeout("style = 33; changeStyle();", 1);
             style = 1;
             break;
+//           case 33:
+//             timeDiv.innerHTML = ""
+//             pageDiv.classList.add('style-rotate90');
+//             setPage(clientHeight, clientWidth, bais, -bais);
+//             setTimeout("style = 333; changeStyle();", 1);
+//             break;
+//           case 333:
+//             timeDiv.innerHTML = last_time;
+// // hack for kindle 2 done
+//             style = 1;
+//             break;
 //           case 4:
 //           case "4":
 //             saveStyle(style);
