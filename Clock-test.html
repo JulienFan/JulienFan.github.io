@@ -7,12 +7,12 @@ permalink: /clock-test/
 <head>
     <meta charset="utf-8"/>
     <title>　pipi clock </title>
-
+    <link href="https://fonts.font.im/css2?family=Montserrat" rel="stylesheet">
     <style>
         body {
           color: #000000;
           background-color: #ffffff;
-          
+          font-family: 'Montserrat';
         }
 
         .page {
@@ -40,15 +40,15 @@ permalink: /clock-test/
         }
 
         .time {
-          top: 0;
-          height: 60%;
-          /*padding-top: 20px;*/
+          /*top: 0;
+          height: 60%;*/
+          padding-top: 120px;
           font-size: 16rem;
         }
 
         .date {
-          height: 40%;
-          /*padding-top: 40px;*/
+          /*height: 40%;*/
+          padding-top: 40px;
           font-size: 6rem;
         }
     </style>
@@ -70,8 +70,9 @@ permalink: /clock-test/
     <script>
       function update() {
         var date = new Date()
-        var utc8DiffMinutes = date.getTimezoneOffset() + 480
-        date.setMinutes(date.getMinutes() + utc8DiffMinutes)
+        timezone = getQueryVariable("timezone") ? getQueryVariable("timezone") : 8
+        var utcDiffMinutes = date.getTimezoneOffset() + 60*timezone
+        date.setMinutes(date.getMinutes() + utcDiffMinutes)
 
         var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
         var dateString = (date.getMonth() + 1) + '月' + date.getDate() + '日'
