@@ -109,7 +109,7 @@ permalink: /clock-compact/
     <div class="page" id="page" >
       <div class="time" id="time" onclick="changeStyle()"></div>
       <div class="date" id="date" onclick="changeStyle()"></div>
-      <!-- <div class="motto" id="motto" onclick="setMotto()"></div> -->
+      <div class="motto" id="motto" onclick="setMotto()"></div>
     </div>
 
     <script type="text/javascript" src="http://s9.cnzz.com/z_stat.php?id=1279802450&web_id=1279802450"></script>
@@ -163,7 +163,7 @@ permalink: /clock-compact/
         console.log("clock done")
         clock_running = false;
         clearInterval(interval_id);
-        timeDiv.innerHTML = halt;
+        // timeDiv.innerHTML = halt;
       }
 
       function setWidgetHeight(base,timeHeight,dateHeight,mottoHeight) {
