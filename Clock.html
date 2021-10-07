@@ -64,7 +64,7 @@ permalink: /clock/
           /*font-family: Amazon ember;*/
           top: 0;
           height: 60%;
-          font-size: 12rem;
+          font-size: 13rem;
           /*font-weight: 100;*/
 
 
@@ -216,10 +216,10 @@ permalink: /clock/
         var date = new Date()
         var utcDiffMinutes = date.getTimezoneOffset() + timezone * 60;
         date.setMinutes(date.getMinutes() + utcDiffMinutes);
-        // if (date.getMinutes() == 0 &&  date.getHours() != last_flash) {
-        //   last_flash = date.getHours();
-        //   flash(1000);
-        // }
+        if (date.getMinutes() == 0 &&  date.getHours() != last_flash) {
+          last_flash = date.getHours();
+          flash(1000);
+        }
         var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
         var dateString = (date.getMonth() + 1) + '-' + ('0' + date.getDate()).slice(-2) + ' '
         var weekList = [' 周日', ' 周一', ' 周二', ' 周三', '  周四', ' 周五', ' 周六']
@@ -231,10 +231,10 @@ permalink: /clock/
         last_time = timeString;
       }
 
-      // function flash(time) {
-      //   document.body.style.backgroundColor = '#000';
-      //   setTimeout("document.body.style.backgroundColor = '#FFF';",time)
-      // }
+      function flash(time) {
+        document.body.style.backgroundColor = '#000';
+        setTimeout("document.body.style.backgroundColor = '#FFF';",time)
+      }
 
       // String.prototype.replaceAll = function(targetStr, newStr) {
       //   var sourceStr = this.valueOf()
