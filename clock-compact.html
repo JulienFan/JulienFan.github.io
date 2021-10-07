@@ -74,7 +74,6 @@ permalink: /clock-compact/
       <div class="date" id="date" onclick="changeStyle()"></div>
     </div>
 
-    <!-- <script type="text/javascript" src="http://s9.cnzz.com/z_stat.php?id=1279802450&web_id=1279802450"></script> -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/eligrey-classlist-js-polyfill@1.2.20171210/classList.min.js"></script>
     <script>
       var last_time;
@@ -238,17 +237,6 @@ permalink: /clock-compact/
         return sourceStr
       }
 
-
-
-      function getCookieStyle(){
-        var name = "style=";
-        var ca = document.cookie.split(';');
-        for(var i=0; i<ca.length; i++) {
-          var c = ca[i].trim();
-          if (c.indexOf(name)==0) return c.substring(name.length,c.length);
-        }
-        return 0;
-      }
 
       flash(100);
       
