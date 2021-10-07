@@ -12,9 +12,7 @@ permalink: /clock/
     <link href="https://fonts.font.im/css2?family=Orbitron" rel="stylesheet">
     <link href="https://fonts.font.im/css2?family=Merienda+One" rel="stylesheet">
     <link href="https://fonts.font.im/css2?family=Black+Ops+One" rel="stylesheet">
-   
     <link href="https://fonts.font.im/css2?family=Sarpanch" rel="stylesheet">
-    
     <link href="https://fonts.font.im/css2?family=Krona+One" rel="stylesheet">
     <link href="https://fonts.font.im/css2?family=Quantico" rel="stylesheet">
     <link href="https://fonts.font.im/css2?family=Anton" rel="stylesheet">
@@ -228,7 +226,7 @@ permalink: /clock/
           flash(1000);
         }
         var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
-        var dateString = (date.getMonth() + 1) + '-' + date.getDate() +' '
+        var dateString = (date.getMonth() + 1) + '-' + ('0' + date.getDate()).slice(-2) + ' '
         var weekList = [' 周日', ' 周一', ' 周二', ' 周三', '  周四', ' 周五', ' 周六']
         var weekString = weekList[date.getDay()]
         if(last_time != timeString){
