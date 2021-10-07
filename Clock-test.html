@@ -15,6 +15,11 @@ permalink: /clock-test/
           font-family: 'Montserrat';
         }
 
+        .style-rotate90{
+          -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+        }
+
         .page {
           position: fixed;
           width: 100%;
@@ -56,7 +61,7 @@ permalink: /clock-test/
 
 <body>
     <div class="page">
-      <div class="time_container">
+      <div class="time_container" onclick="changeStyle()">
           <div class="time" id="time">11:27</div>
       </div>
 
@@ -68,10 +73,21 @@ permalink: /clock-test/
 
 
     <script>
+      
+      const timeDiv = document.getElementById("time_container");
+      const dateDiv = document.getElementById("date_container");
+      const pageDiv = document.getElementById("page");
+
+      function changeStyle() {
+        var clientHeight = document.documentElement.clientHeight;
+        var clientWidth = document.documentElement.clientWidth;
+      }
+
+
       function update() {
         var date = new Date()
         timezone = getQueryVariable("timezone") ? getQueryVariable("timezone") : 8
-        var utcDiffMinutes = date.getTimezoneOffset() + 60*timezone
+        var utcDiffMinutes = date.getTimezoneOffset() + 480
         date.setMinutes(date.getMinutes() + utcDiffMinutes)
 
         var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2)
