@@ -187,9 +187,10 @@ permalink: /clock/
              setWidgetHeight(clientWidth, 0.65, 0.35);
             var bais = (clientHeight - clientWidth) / 2;
 // hack for kindle 3
-            setPage(clientHeight*0.5, clientWidth*0.5, bais, -bais);
+            setPage(clientHeight, clientWidth, bais, -bais);
             setTimeout("style = 33; changeStyle();", 1);
           case 33:
+            //setPage(clientHeight, clientWidth, bais, -bais);
             timeDiv.innerHTML = last_time;
             style = 1;
             break;
