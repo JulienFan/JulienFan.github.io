@@ -179,9 +179,20 @@ permalink: /clock/
           case 222:
             timeDiv.innerHTML = last_time;
 // hack for kindle 2 done
+            style = 3;
+            break;
+          case 3:
+          case "3":
+            pageDiv.classList.remove('style-rotate270');
+             setWidgetHeight(clientWidth, 0.65, 0.35);
+            var bais = (clientHeight - clientWidth) / 2;
+// hack for kindle 3
+            setPage(clientHeight*0.5, clientWidth*0.5, bais, -bais);
+            setTimeout("style = 33; changeStyle();", 1);
+          case 33:
+            timeDiv.innerHTML = last_time;
             style = 1;
             break;
-
           default:
             setWidgetHeight(clientHeight, 0.65, 0.35);
             style = 1;
